@@ -9,7 +9,7 @@
     <form method="GET">
 
         <fieldset>
-        <legend>Datos Personales</legend>
+        <legend>Datos Personales:</legend>
             <label for="nombre">Nombre:</label>
             <input placeholder="Escrba su Nombre" type="text" id="nombre" name="nombre" maxlength="50" required><br><br>
             
@@ -31,10 +31,10 @@
             <input type="radio" id="mujer" name="sexo" value="mujer" required>
             <label for "mujer">Mujer</label><br><br>
 
-        </fieldset>
+        </fieldset><br><br>
 
         <fieldset>
-        <legend>Datos de contacto</legend>
+        <legend>Datos de contacto:</legend>
         <label for="provincia">Provincia:</label>
         <select id="provincia" name="provincia" required>
             <option value="Alicante">Alicante</option>
@@ -65,16 +65,29 @@
         <input type="checkbox" id="otros" name="comoConocido[]" value="Otros">
         <label for="otros">Otros</label><br><br>
 
-        </fieldset>
+        </fieldset><br><br>
 
+        <fieldset>
+        <legend>Datos de la incidencia:</legend>
+        <label for="tipoIncidencia">Tipo de incidencia:</label>
+        <select id="tipoIncidencia" name="tipoIncidencia" required>
+            <option value="Telefono fijo">Teléfono fijo</option>
+            <option value="Telefono móvil">Teléfono móvil</option>
+            <option value="Internet">Internet</option>
+            <option value="Televisión">Televisión</option>
+        </select><br><br>
 
 
         <label for="comentario">Descripción de la incidencia:</label>
         <textarea placeholder="Describa la incidencia..."  id="comentario" name="comentario" rows="4" cols="40"></textarea><br><br>
         
+        </fieldset><br><br>
         
+
+        <fieldset>
         <input type="submit" value="Enviar">
         <input type="reset" value="Limpiar">
+        </fieldset>
 
     </form>
 
@@ -91,6 +104,7 @@ $sexo = $_GET["sexo"];
 $provincia = $_GET["provincia"];
 $horario = isset($_GET["horario"]) ? implode(", ", $_GET["horario"]) : "No se seleccionó horario";
 $comoConocido = isset($_GET["comoConocido"]) ? implode(", ", $_GET["comoConocido"]) : "No se seleccionó cómo nos ha conocido";
+$tipoIncidencia = $_GET["tipoIncidencia"];
 $comentario = $_GET["comentario"];
 
 
@@ -105,6 +119,7 @@ echo "<b>Sexo:</b> " . strtoupper($sexo) . "<br>";
 echo "<b>Provincia:</b> " . strtoupper($provincia). "<br>";
 echo "<b>Horario de contacto:</b> " . strtoupper($horario). "<br>";
 echo "<b>Cómo nos ha conocido:</b> " . strtoupper($comoConocido). "<br>";
+echo "<b>Tipo de incidencia:</b> " . strtoupper($tipoIncidencia). "<br>";
 echo "<b>Comentario:</b> " . strtoupper($comentario). "<br>";
 
 ?>
